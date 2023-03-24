@@ -14,6 +14,17 @@ export default async function handle(req, res) {
     return;
   }
 
+  const prismaUser = await prisma.user.findUnique({
+    where: { email: session.user.email },
+  })
+
+  if (!prismaUser) {
+    res.status(401).json({ error: 'Unauthorized' })
+    return
+  }
+
+
+
   const { method } = req
 
   switch (method) {
@@ -23,6 +34,7 @@ export default async function handle(req, res) {
       // use prisma to create a new post using that data
       const post = await prisma.post.create({
         data: {
+          userId: prismaUser.id,
           title,
           content
         }
