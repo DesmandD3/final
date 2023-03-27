@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import LoginComponent from './login'
 import styles from '../styles/Home.module.css'
+import React from "react";
+import Lottie from "lottie-react";
+import mario from "../public/mario.json";
 
 
 export default function Home(props) {
@@ -22,6 +25,11 @@ export default function Home(props) {
 
   return (
     <main className={styles.mainBackground}>
+       {/* <Lottie
+            animationData={mario}
+            loop={true}
+            className={styles.marioStyle} /> */}
+
       <div>
         <div className={styles.headingAlign}>
           <h1 className={styles.mainHeader}>Retro Bulletin Board</h1>
@@ -52,12 +60,14 @@ export default function Home(props) {
           </form>
         </div>
 
-        {posts.map((post) => (
-          <div key={post.id}>
-            <h2>{post.title}</h2>
-            <p>{post.content}</p>
-          </div>
-        ))}
+        <div className={styles.postBoard}>
+          {posts.map((post) => (
+            <div key={post.id} className={styles.postCard}>
+              <h2>{post.title}</h2>
+              <p>{post.content}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </main>
   )

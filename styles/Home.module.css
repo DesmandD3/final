@@ -5,8 +5,7 @@
   opacity: 0.8;
   background-image:  linear-gradient(#444cf7 1px, transparent 1px), linear-gradient(to right, #444cf7 1px, #e5e5f7 1px);
   background-size: 50px 50px;
-  height: 100vh;
-  color: black
+  color: black;
 } 
 .mainHeader {
   font-size: 50px;
@@ -79,4 +78,27 @@
 .loginButton {
   padding: 0.5rem;
   margin-top:0.25rem;
+}
+.postCard{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  background-color: yellow;
+  margin: 1em;
+  box-shadow: -0.6rem 0.6rem 0 rgba(29, 30, 28, 0.5);
+  padding: 1rem;
+  width: 35%;
+}
+.postBoard {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  max-width: 600px;
+  padding: 1rem; 
+  flex-wrap: wrap; 
+}
+.marioStyle{
+  position: relative;
+  top: -800px;
+  right: 50px;
 }
